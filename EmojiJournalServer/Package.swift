@@ -20,9 +20,10 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages which this package depends on.
         .target(
             name: "EmojiJournalServer",
-            dependencies: ["Kitura", "HeliumLogger", "CloudEnvironment", "Configuration", "SwiftMetrics", "Health", "CouchDB", "KituraStencil"]),
+            dependencies: [ "Kitura", "HeliumLogger", "CloudEnvironment", "Configuration", "SwiftMetrics", "Health", "CouchDB", "KituraStencil" ]),
         .testTarget(
             name: "EmojiJournalServerTests",
-            dependencies: ["EmojiJournalServer"]),
+            dependencies: ["EmojiJournalServer", "Kitura", "HeliumLogger"]),
     ]
 )
+

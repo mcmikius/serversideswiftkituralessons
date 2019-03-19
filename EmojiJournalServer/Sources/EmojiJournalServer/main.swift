@@ -1,5 +1,13 @@
+import Foundation
 import Kitura
+import LoggerAPI
+import HeliumLogger
 
-let router = Router()
-Kitura.addHTTPServer(onPort: 8080, with: router)
-Kitura.run()
+do {
+    HeliumLogger.use(LoggerMessageType.info)
+    let app = App()
+    try app.run()
+} catch let error {
+    Log.error(error.localizedDescription)
+}
+
